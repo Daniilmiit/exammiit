@@ -1,5 +1,5 @@
 ﻿#!/bin/bash
-sudo apt remove 'dotnet*' 'aspnet*' 'netstandard*'
+apt remove 'dotnet*' 'aspnet*' 'netstandard*' -y
 
 preferences_file="/etc/apt/preferences"
 
@@ -20,6 +20,7 @@ wget https://packages.microsoft.com/config/ubuntu/$repo_version/packages-microso
 # Install Microsoft signing key and repository
 dpkg -i packages-microsoft-prod.deb
 
+apt install -y net-tools
 apt install -y apt-transport-https
 apt update
 apt install -y dotnet-sdk-6.0
@@ -32,5 +33,7 @@ apt update
 # Build 
 dotnet restore
 dotnet publish -c Release -o out app.csproj
+
+ifconfig
 
 dotnet out/app.dll
