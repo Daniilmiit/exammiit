@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Ввод модели тачки</title>
+    <!-- Add Bootstrap CDN link -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Miitexam_Ponomarev_D</h1>
+        <h2>Car</h2>
+        <form action="/api/car/set" method="post">
+            <div class="form-group">
+                <label for="maker">Maker:</label>
+                <input type="text" name="givenMaker" id="maker" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="model">Model:</label>
+                <input type="text" name="givenModel" id="model" class="form-control" required>
+            </div>
+            <input type="submit" value="Set" class="btn btn-primary">
+        </form>
+		<hr>
+        <h2>Driver</h2>
+        <form action="/api/driver/set" method="post">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" name="givenName" id="name" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="age">Age:</label>
+                <input type="number" name="givenAge" id="age" class="form-control" required>
+            </div>
+            <input type="submit" value="Set" class="btn btn-primary">
+        </form>
+		<hr>
+        <h2>Запустить Heathcheck</h2>
+        <a href="/api/healthcheck" class="btn btn-primary">Проверить работу API</a>
+    </div>
+
+    <!-- Add Bootstrap JS CDN link -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

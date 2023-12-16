@@ -1,0 +1,10 @@
+[Unit]
+Description=MiitExam
+After=network.target
+
+[Service]
+ExecStart=dotnet /var/www/miitexam/app.dll
+WorkingDirectory=/var/www/miitexam
+
+[Install]
+WantedBy=default.target
