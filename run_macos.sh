@@ -1,8 +1,16 @@
-﻿# задаём переменные
+﻿#!/bin/bash
+# задаём переменные
 service_name="miitexam.service"
-site_folder="/var/www/miitexam"
+site_folder="/usr/www/miitexam"
 
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+if ! command -v brew &> /dev/null; then
+    echo "🍺 Homebrew is not installed."
+    echo "🚀 Installing Homebrew..."
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+else
+    echo "🍺 Homebrew is already installed."
+fi
+
 brew update
 source ~/.zshrc
 brew install dotnet@6
@@ -15,3 +23,5 @@ dotnet --version
 
 dotnet restore
 dotnet publish -c Release -o out app.csproj
+
+cp -a out/. /user
