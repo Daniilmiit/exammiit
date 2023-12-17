@@ -18,7 +18,8 @@ brew install nginx
 cp nginx-macos.conf /usr/local/etc/nginx/nginx.conf
 brew services restart nginx
 
-if [ $(nginx -t) -ne 0 ]; then
+nginx -t
+if [ $1 -ne 0 ]; then
     echo "Nginx configuration test failed. Exiting script."
     exit 1
 fi
