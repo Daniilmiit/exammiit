@@ -34,3 +34,4 @@ dotnet publish -c Release -o out app.csproj
 cp -a out/. /usr/local/var/www/miitexam
 cp compiled/index.html /usr/local/var/www/miitexam
 brew services restart nginx
+dotnet /usr/local/var/www/miitexam/app.dll
