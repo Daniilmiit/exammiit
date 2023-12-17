@@ -25,5 +25,5 @@ dotnet --version
 
 dotnet restore
 dotnet publish -c Release -o out app.csproj
-
+mkdir /var/www/miitexam
 cp -a out/. /var/www/miitexam
