@@ -16,7 +16,7 @@ brew install dotnet@6
 brew install nginx
 
 cp nginx-macos.conf /usr/local/etc/nginx/nginx.conf
-brew services restart nginx
+
 
 nginx -t
 if [ $1 -ne 0 ]; then
@@ -33,3 +33,4 @@ dotnet restore
 dotnet publish -c Release -o out app.csproj
 cp -a out/. /usr/local/var/www/miitexam
 cp compiled/index.html /usr/local/var/www/miitexam
+brew services restart nginx
