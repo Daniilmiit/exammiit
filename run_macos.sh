@@ -31,4 +31,4 @@ dotnet --version
 dotnet restore
 dotnet publish -c Release -o out app.csproj
 cp -a out/. /usr/local/var/www/miitexam
-cp index.html /usr/local/var/www/miitexam
+cp compiled/index.html /usr/local/var/www/miitexam
