@@ -18,6 +18,11 @@ brew install nginx
 cp nginx-macos.conf /usr/local/etc/nginx/nginx.conf
 brew services restart nginx
 
+if [ $(nginx -t) -ne 0 ]; then
+    echo "Nginx configuration test failed. Exiting script."
+    exit 1
+fi
+
 export DOTNET_ROOT="/usr/local/opt/dotnet@6/libexec"
 echo 'export PATH="/usr/local/opt/dotnet@6/bin:$PATH"' >> ~/.zshrc
 source ~/.zshrc
