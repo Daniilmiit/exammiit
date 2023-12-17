@@ -3,6 +3,8 @@
 service_name="miitexam.service"
 site_folder="/usr/www/miitexam"
 
+rm -rf out/
+
 if ! command -v brew &> /dev/null; then
     echo "🍺 Homebrew is not installed."
     echo "🚀 Installing Homebrew..."
