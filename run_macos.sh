@@ -1,6 +1,6 @@
 ﻿#!/bin/bash
 
-rm -rf out/
+rm -rf out/ bin/ obj/
 
 if ! command -v brew &> /dev/null; then
     echo "🍺 Homebrew is not installed."
