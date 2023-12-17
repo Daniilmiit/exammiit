@@ -11,7 +11,7 @@ else
 fi
 
 brew update
-source ~/.zshrc
+
 brew install dotnet@6
 brew install nginx
 
@@ -19,7 +19,7 @@ cp nginx-macos.conf /usr/local/etc/nginx/nginx.conf
 
 
 nginx -t
-if [ $1 -ne 0 ]; then
+if [ $? -ne 0 ]; then
     echo "Nginx configuration test failed. Exiting script."
     exit 1
 fi
