@@ -26,4 +26,4 @@ dotnet --version
 dotnet restore
 dotnet publish -c Release -o out app.csproj
 
-cp -a out/. /user
+cp -a out/. /usr/local/var/www/
