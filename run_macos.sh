@@ -1,4 +1,4 @@
-﻿#!/bin/bash
+#!/bin/bash
 
 rm -rf out/ bin/ obj/
 

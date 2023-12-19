@@ -2,22 +2,38 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 using System.Threading.Tasks;
+using System.Net.Http;
 
 namespace miitexam.Controllers
 {
-	[ApiController]
+    [ApiController]
     [Route("api/[controller]")]
     public class HealthcheckController : ControllerBase
     {
         [HttpGet]
         public IActionResult CheckHealth()
         {
-            // Perform your health checks here
+            // Проверяем, что один из контрлллеров доступен
+            if (IsAppRunning())
+            {
+                return Ok("API запущен и работает корректно! 🚀");
+            }
+            else{
+                // Выдаем 503, если ошибка API
+                return StatusCode(503, "API недоступен 😞");
+            }
+        }
 
-            // Return 200 OK status and a message
-            return Ok("API работает нормально!");
+        private bool IsAppRunning()
+        {
+            using (var client = new HttpClient())
+            {
+                var response = client.GetAsync("http://localhost:5000/api/Car").Result;
+                return response.IsSuccessStatusCode;
+            }
         }
     }
+
     [ApiController]
     [Route("api/[controller]")]
     public class CarController : ControllerBase
@@ -52,6 +68,7 @@ namespace miitexam.Controllers
             return RedirectToAction("GetCar");
         }
     }
+
 	[ApiController]
     [Route("api/[controller]")]
     public class DriverController : ControllerBase

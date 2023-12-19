@@ -3,6 +3,10 @@
 site_folder="/var/www/miitexam"
 service_name="miitexam.service"
 
+# зачиска прошлого запуска
+sudo rm -rf $site_folder
+sudo systemctl stop $service_name && systemctl disable $service_name
+
 # настройка nginx и копирование конфигов
 sudo apt-get install nginx -y
 sudo mkdir $site_folder

@@ -149,5 +149,4 @@ systemctl start $service_name
 systemctl enable $service_name
 systemctl status $service_name --no-pager
 # выводим айпи системы, чтобы перейти по нему и открыть сайт
-ifconfig | grep inet -m1 | awk '{print $2}'
-
+echo "http://"$(ifconfig | grep inet -m1 | awk '{print $2}')
